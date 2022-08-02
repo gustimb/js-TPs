@@ -1,80 +1,78 @@
-// Utilicé el js de la última entrega.
-// Hice que el return de la función respuestaAutomatica se imprima en el HTML, en vez de salir por un alert.
+// Al trabajo anterior se le quitaron los prompt, para dar lugar al formulario en HTML.
+// Utilizo el evento onsubmit para pushear los nuevos clientes al array cliente.
+// El submit se habilita si los input tienen por lo menos 1 caracter.
+// Cuando se envían los datos se inyecta al HTML el mensaje automático de agradecimiento, que cuenta un botón (Volver) para recargar la página utilizando el evento onclick.
+// También use los eventos onmouseover/onmouseout para crear un efecto hover sobre el contenedor del formulario.
 
-const cliente = [
-    {
-        nombreCompleto: "Daniel Perez",
-        email: "daniel.perez@gmail.com",
-        telefono: 1164324110,
-        pais: "argentina",
-        mensaje: "Favor de enviarme info de los precios por mail.",
-    },
-    {
-        nombreCompleto: "Roxana Zully",
-        email: "daniel.perez@gmail.com",
-        telefono: 2226577859,
-        pais: "uruguay",
-        mensaje: "Necesito info de la cobertura, envienmela por correo por favor.",
-    },
-    {
-        nombreCompleto: "Agustina Moyano",
-        email: "agus_m@gmail.com",
-        telefono: 1165458709,
-        pais: "argentina",
-        mensaje: "Favor de enviarme info de los precios por mail",
-    },
-    {
-        nombreCompleto: "Robert Gomez",
-        email: "g.robert22@gmail.com",
-        telefono: 1355074390,
-        pais: "brasil",
-        mensaje: "Necesito informacion, contáctenme.",
-    },
-]
 
-const respuestaAutomatica = (nombreCliente, mailCliente, telefonoCliente) => {
-    return (`
-    
-        <h1 class="titulo"> GRACIAS POR TU CONTACTO </h1>
+const cliente = []
 
-        <h2 class="titulo"> ${nombreCliente}! </h2>
-
-        <p class="parrafo"> Por favor, corrobora los siguientes datos:
-
-        <div class="datos">
-            <p class="parrafoDatos">Correo electrónico: ${mailCliente}</p>
-            <p class="parrafoDatos">Teléfono: ${telefonoCliente}</p>
-        </div>
-
-        <p class="parrafo">Estaremos respondiendo tu consulta a la brevedad por alguno de los canales de contacto ingresados. Saludos!</p>`
-    )
+class Cliente {
+    constructor(nombre, telefono, email, pais, mensaje) {
+        this.nombre = nombre;
+        this.telefono = telefono;
+        this.email = email;
+        this.pais = pais;
+        this.mensaje = mensaje;
+    }
 }
 
-console.log(cliente)
+const contenedor = document.querySelector(".contenedor")
+const formulario = document.querySelector("#formulario")
+const datoNombre = document.querySelector("#nombreCompleto")
+const datoTelefono = document.querySelector("#numeroDeTelefono")
+const datoEmail = document.querySelector("#correoElectronico")
+const datoPais = document.querySelector("#pais")
+const datoMensaje = document.querySelector("#mensaje")
+const submit = document.querySelector("#submit")
+submit.disabled = true
 
-cliente.push(
-    {
-        nombreCompleto: prompt("Ingrese su nombre completo:").toUpperCase(),
-        email: prompt("Ingrese su correo electrónico:"),
-        telefono: Number(prompt("Ingrese su número de telefono con el código de área, sin 0 y sin 15:")),
-        pais: prompt("Ingrese su país de origen:").toLowerCase(),
-        mensaje: prompt("Ingrese su consulta:"),        
+formulario.oninput = () => {
+    if (datoNombre.value.length < 1 || datoTelefono.value.length < 1 || datoEmail.value.length < 1 || datoMensaje.value.length < 1) {
+        submit.disabled = true
+    } else {
+        submit.disabled = false
     }
-)
+}
 
-const divRespuesta = document.querySelector(".contenedor")
+contenedor.onmouseover = () => {
+    contenedor.style.background = "rgba(0, 0, 0, 0.5)"
+}
 
-divRespuesta.innerHTML = respuestaAutomatica(cliente[cliente.length - 1].nombreCompleto, cliente[cliente.length - 1].email, cliente[cliente.length - 1].telefono)
+contenedor.onmouseout = () => {
+    contenedor.style.background = "rgba(0, 0, 0, 0.3)"
+}
 
-const clienteExtranjero = cliente.filter((curr => {
-    return curr.pais != "argentina"
-}))
+formulario.onsubmit = (event) => {
 
-console.log(clienteExtranjero)
+    event.preventDefault()
 
+    cliente.push(new Cliente(datoNombre.value, Number(datoTelefono.value), datoEmail.value, datoPais.value, datoMensaje.value))
 
+    console.log(cliente)
 
+    contenedor.innerHTML = ` <h2 class="titulo"> GRACIAS POR TU CONTACTO </h2>
+    <h3 class="titulo"> ${datoNombre.value.toUpperCase()}! </h3>
+    <p class="parrafo"> Por favor, corrobora los siguientes datos:
+    <div class="datos">
+        <p class="parrafoDatos">Correo electrónico: ${datoEmail.value}</p>
+        <p class="parrafoDatos">Teléfono: ${datoTelefono.value}</p>
+    </div>
+    <p class="parrafo">Estaremos respondiendo tu consulta a la brevedad por alguno de los canales de contacto ingresados. Saludos!</p>
+    <label>
+        <input type="button" value="Volver" id="recargar">
+    </label>`
 
+    const submitVolver = document.querySelector("#recargar")
 
+    submitVolver.onclick = () => {
+        location.reload()
+    }
 
+    const clienteExtranjero = cliente.filter((curr => {
+        return curr.pais != "Argentina"
+    }))
+
+    console.log(clienteExtranjero)
+}
 
