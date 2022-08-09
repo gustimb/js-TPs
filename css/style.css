@@ -1,70 +1,144 @@
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
-body {
-    height: 100vh;
-    background-color: #537895;
-    background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
-}
+/* header */
 
-.contenedor {
-    background-color: rgba(0, 0, 0, 0.3);
-    margin: 50px auto;
-    width: 90%;
-    height: 70%;
+.login {
+    margin: auto;
+    padding: 30px 0;
+    width: 250px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    border: 2px solid whitesmoke;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.9);
 }
 
-#formulario {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-}
-
-label{
-    color: whitesmoke;
+label {
+    color: black;
     margin: 0.5rem 0;
     text-align: left;
 }
 
-
-
-textarea{
-    min-width: 100%;
-    max-width: 100%;
-    min-height: 100px;
-    max-height: 100px;
-    
+input {
+    margin: 0.5rem 0;
 }
 
-.titulo {
-    font-size: 1.5rem;
-    font-weight: bolder;
-    margin: 5px;
-    color: whitesmoke;
+#submitIngresar,
+#botonRegistrate {
+    width: 100%;
 }
 
-.parrafo {
-    margin: 15px;
-    color: whitesmoke;
+#cerrarSesion {
+    margin: 2rem auto;
+    width: 30%;
+    display: none;
+    justify-content: center;
 }
 
-.datos {
+
+
+/* main */
+
+.avisoRegistro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+}
+
+#formulario {
+    display: none;
+    flex-direction: column;
+    margin: auto;
+    width: 50%;
+
+}
+
+.labelRegisto {
+    display: flex;
+    justify-content: center;
+}
+
+.seccionesTajetas {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tarjetaProducto {
+    width: 80%;
+    height: auto;
+    margin: 1rem;
+    padding: 1rem;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculadoraMetros {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.botonCalculadora,
+#divBotonSumarAlCarrito {
+    width: 60%;
+}
+
+#botonCalcular,
+#botonCalcular2,
+#botonCalcular3,
+#botonCalcular4 {
+    width: 100%;
+}
+
+#valorPlatea,
+#valorAlisado,
+#valorExcavacion,
+#valorRetiro {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid black;
+    margin: 1rem;
+    width: 100%;
+}
+
+#valorEstimado {
+    text-align: center;
     margin: 10px;
+    width: 60%;
 }
 
-.parrafoDatos {
-    margin: 5px;
-    font-weight: bolder;
-    color: whitesmoke;
+#botonSumarAlCarrito,
+#botonSumarAlCarrito2,
+#botonSumarAlCarrito3,
+#botonSumarAlCarrito4 {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: aquamarine;
+    margin: 10px 0;
+
+}
+
+#carritoHTML,
+#precioTotalHTML {
+    width: 80%;
+    height: auto;
+    margin: 1rem;
+    padding: 1rem;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: aquamarine;
 }

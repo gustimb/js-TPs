@@ -5,52 +5,173 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
+    <title>TP7</title>
 </head>
 
 <body>
     <div class="contenedor">
-        <h1 class="titulo">CONTACTO</h1>
-        <form id="formulario">
-            <label for="nombreCompleto">
-                Nombre y Apellido (*)
-            </label>
-            <input type="text" id="nombreCompleto">
+        <header>
+            <div>
+                <form class="login" id="login">
+                    <label for="user">Ususario</label>
+                    <input type="text" name="user" id="inputUser">
+                    <label for="password">Contraseña</label>
+                    <input type="text" name="password" id="inputPassword">
+                    <label>
+                        <input type="submit" id="submitIngresar" value="Ingresar">
+                    </label>
+                    <label>
+                        <button id="botonRegistrate">Registrate</button>
+                    </label>
+                </form>
+                <div>
+                    <label>
+                        <button id="cerrarSesion">Carrar sesión</button>
+                    </label>
+                </div>
 
-            <label for="numeroDeTelefono">
-                Teléfono (*)
-            </label>
-            <input type="text" id="numeroDeTelefono">
+            </div>
+        </header>
 
-            <label for="correoElectronico">
-                Correo Electrónico (*)
-            </label>
-            <input type="email" id="correoElectronico">
+        <main>
 
-            <label for="pais">
-                Selecciona tu país
-            </label>            
-            <select name="select" id="pais">
-                <option value="Argentina"> Argentina </option>
-                <option value="Brasil"> Brasil </option>
-                <option value="Uruguay"> Uruguay</option>
-                <option value="Paraguay"> Paraguay </option>
-                <option value="Chile"> Chile </option>
-                <option value="Perú"> Perú </option>
-                <option value="Otros"> Otros </option>
-            </select>
+            <div class="avisoRegistro">
+                <h1>Ingresa con tu usuario!</h1>
+                <p>
+                    Para realizar un presupuesto debes ingresar con tu usuario y contraseña.
+                </p>
+                <p>
+                    En caso de no contar con uno, puedes registrarte!
+                </p>
+            </div>
 
-            <label for="mensaje">
-                Mensaje (*)
-            </label>
-            <textarea type="text" id="mensaje"></textarea>
+            <div>
+                <form id="formulario">
+                    <label for="nombreCompleto">
+                        Nombre y Apellido (*)
+                    </label>
+                    <input type="text" id="nombreCompleto">
 
-            <label>
-                <input type="submit" value="Enviar" id="submit">
-            </label>
-        </form>
+                    <label for="numeroDeTelefono">
+                        Teléfono (*)
+                    </label>
+                    <input type="text" id="numeroDeTelefono">
 
+                    <label for="correoElectronico">
+                        Correo Electrónico (*)
+                    </label>
+                    <input type="email" id="correoElectronico">
+
+                    <label for="pais">
+                        Selecciona tu país
+                    </label>
+                    <select name="select" id="pais">
+                        <option value="Argentina"> Argentina </option>
+                        <option value="Brasil"> Brasil </option>
+                        <option value="Uruguay"> Uruguay</option>
+                        <option value="Paraguay"> Paraguay </option>
+                        <option value="Chile"> Chile </option>
+                        <option value="Perú"> Perú </option>
+                        <option value="Otros"> Otros </option>
+                    </select>
+                    <label for="usuario">Usuario</label>
+                    <input type="text" id="nuevoUsuario">
+                    <label for="contrasenia">Contraseña</label>
+                    <input type="text" id="nuevaContrasenia">
+                    <label class="labelRegisto">
+                        <input type="submit" value="Enviar" id="submitRegisto">
+                    </label>
+                </form>
+            </div>
+
+            <div class="seccionesTajetas">
+
+                <section class="tarjetaProducto">
+                    <p> ◼ Platea de cemento por metro cuadrado</p>
+                    <div class="calculadoraMetros">
+                        <label for="metros">Ingrese m2:</label>
+                        <input type="number" id="m2Platea">
+                    </div>
+                    <div class="botonCalculadora">
+                        <button id="botonCalcular">Calcular</button>
+                    </div>
+
+                    <div id="valorPlatea">
+                    </div>
+
+                    <div id="divBotonSumarAlCarrito">
+                        <button id="botonSumarAlCarrito">Sumar al carrito</button>
+                    </div>
+                </section>
+
+                <section class="tarjetaProducto">
+                    <p> ◼ Servicio adicional: Alisado de piso</p>
+                    <div class="calculadoraMetros">
+                        <label for="metros">Ingrese m2:</label>
+                        <input type="number" id="m2Alisado">
+                    </div>
+                    <div class="botonCalculadora">
+                        <button id="botonCalcular2">Calcular</button>
+                    </div>
+                    <div id="valorAlisado">
+                    </div>
+
+                    <div id="divBotonSumarAlCarrito">
+                        <button id="botonSumarAlCarrito2">Sumar al carrito</button>
+                    </div>
+
+                </section>
+
+                <section class="tarjetaProducto">
+                    <p> ◼ Excavaciones por metro cubico</p>
+                    <div class="calculadoraMetros">
+                        <label for="metros">Ingrese m3:</label>
+                        <input type="number" id="m3Excavacion">
+                    </div>
+                    <div class="botonCalculadora">
+                        <button id="botonCalcular3">Calcular</button>
+                    </div>
+                    <div id="valorExcavacion">
+                    </div>
+
+                    <div id="divBotonSumarAlCarrito">
+                        <button id="botonSumarAlCarrito3">Sumar al carrito</button>
+                    </div>
+                </section>
+
+                <section class="tarjetaProducto">
+                    <p> ◼ Servicio adicional: Retiro de tierra/escombros</p>
+                    <div class="calculadoraMetros">
+                        <label for="metros">Ingrese m3:</label>
+                        <input type="number" id="m3Retiro">
+                    </div>
+                    <div class="botonCalculadora">
+                        <button id="botonCalcular4">Calcular</button>
+                    </div>
+                    <div id="valorRetiro">
+                    </div>
+
+                    <div id="divBotonSumarAlCarrito">
+                        <button id="botonSumarAlCarrito4">Sumar al carrito</button>
+                    </div>
+                </section>
+
+                <div id="carritoHTML">
+
+                </div>
+
+                <div id="precioTotalHTML">
+
+                </div>
+
+
+            </div>
+
+        </main>
+
+        <footer>
+        </footer>
     </div>
     <script src="index.js"></script>
 </body>
