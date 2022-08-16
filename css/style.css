@@ -36,8 +36,6 @@ input {
     justify-content: center;
 }
 
-
-
 /* main */
 
 .avisoRegistro {
@@ -53,7 +51,6 @@ input {
     flex-direction: column;
     margin: auto;
     width: 50%;
-
 }
 
 .labelRegisto {
@@ -66,9 +63,12 @@ input {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 90%;
+    border: 2px solid black;
+    margin: 30px auto;
 }
 
-.tarjetaProducto {
+.contenedorProductos {
     width: 80%;
     height: auto;
     margin: 1rem;
@@ -80,57 +80,34 @@ input {
     align-items: center;
 }
 
-.calculadoraMetros {
-    width: 60%;
+.producto{
+    margin: 10px auto;
+    padding: 10px;
+    background-color: aqua;
+    border: 2px solid black;
+    width: 80%;
     display: flex;
-    justify-content: space-between;
-}
-
-.botonCalculadora,
-#divBotonSumarAlCarrito {
-    width: 60%;
-}
-
-#botonCalcular,
-#botonCalcular2,
-#botonCalcular3,
-#botonCalcular4 {
-    width: 100%;
-}
-
-#valorPlatea,
-#valorAlisado,
-#valorExcavacion,
-#valorRetiro {
-    display: none;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid black;
-    margin: 1rem;
-    width: 100%;
-}
-
-#valorEstimado {
-    text-align: center;
-    margin: 10px;
-    width: 60%;
-}
-
-#botonSumarAlCarrito,
-#botonSumarAlCarrito2,
-#botonSumarAlCarrito3,
-#botonSumarAlCarrito4 {
-    display: flex;
     justify-content: center;
-    width: 100%;
-    background-color: aquamarine;
-    margin: 10px 0;
-
+    align-items: center;
 }
 
-#carritoHTML,
-#precioTotalHTML {
+.infoProducto{
+    font-weight: bolder;
+    font-size: 1.2rem;
+}
+
+.agregar{
+    padding: 5px;
+    
+}
+#vaciarCarrito, .terminarCompra, .botonBorrar{
+    padding: 5px;
+    margin: 20px;
+}
+
+
+#carritoHTML {
     width: 80%;
     height: auto;
     margin: 1rem;
@@ -141,4 +118,12 @@ input {
     justify-content: center;
     align-items: center;
     background-color: aquamarine;
+}
+
+.productoCarrito{
+    display: flex;
+    margin: 5px;
+    width: 80%;
+    justify-content: space-around;
+    align-items: center;
 }
