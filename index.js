@@ -1,7 +1,5 @@
 
 
-
-
 const avisoRegistro = document.querySelector(".avisoRegistro")
 const formularioLogin = document.querySelector("#login")
 const inputUser = document.querySelector("#inputUser")
@@ -31,6 +29,8 @@ botonRegistrate.addEventListener("click", (e) => {
     avisoRegistro.style.display = "none"
 })
 
+
+
 class NuevoUsuario {
     constructor(nombre, telefono, email, pais, usuario, contrasenia) {
         this.nombre = nombre;
@@ -57,6 +57,42 @@ formularioRegistro.onsubmit = (event) => {
     event.preventDefault()
     usuarios.push(new NuevoUsuario(datoNombre.value, Number(datoTelefono.value), datoEmail.value, datoPais.value, datoUsuario.value, datoContrasenia.value))
     console.log(usuarios)
+
+    let formData = new FormData(event.target)
+
+    fetch("https://formsubmit.co/ajax/gmb.lombardi92@gmail.com", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+            name: "DATOS FORMULARIO",
+            message: `
+            Nombre: ${formData.get("nombre")}
+            Teléfono: ${formData.get("phone")}
+            Email: ${formData.get("email")}
+            Pais: ${formData.get("pais")}
+            Usuario: ${formData.get("usuario")}
+            Contraseña: ${formData.get("contra")}`
+        })
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            alert("Formulario enviado")
+        })
+        .catch(error => {
+            console.log(error)
+            alert("Error al enviar formulario")
+        });
+
+    console.log(formData.get("nombre"))
+    console.log(formData.get("phone"))
+    console.log(formData.get("email"))
+    console.log(formData.get("pais"))
+    console.log(formData.get("usuario"))
+    console.log(formData.get("contra"))
 }
 
 // LOGIN *****
